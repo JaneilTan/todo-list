@@ -1,4 +1,5 @@
 import request from 'superagent'
+import { Tasks } from '../../models/todos'
 
 const rootUrl = '/api/v1'
 
@@ -10,4 +11,9 @@ export async function getTasks(){
     console.error('Error fetching todo')
   }
   
+}
+
+export async function addTasks(task: Tasks) {
+  const addedTask = await request.post(rootUrl).send(task)
+  return addedTask.body
 }
