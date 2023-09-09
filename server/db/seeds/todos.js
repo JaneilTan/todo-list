@@ -3,7 +3,7 @@ export async function seed (knex) {
   await knex('todo').del()
 
   // Inserts seed entries
-  await knex('todos').insert([
+  await knex('todo').insert([
     { id: 1, task: '' },
   ])
 }
