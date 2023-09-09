@@ -6,3 +6,9 @@ const db = connection
 export async function getTasks(): Promise<Tasks[]> {
   return db('todo').select()
 }
+
+export async function addTasks (task: Tasks): Promise<Tasks[]> {
+  return db('todo')
+  .insert({ ...task })
+  .returning(['id', 'task'])
+}
