@@ -17,3 +17,7 @@ export async function addTasks(task: Tasks) {
   const addedTask = await request.post(`${rootUrl}/todo`).send(task)
   return addedTask.body
 }
+
+export async function deleteTask(id: number) {
+  await request.delete(`${rootUrl}/todo/${id}`)
+}
