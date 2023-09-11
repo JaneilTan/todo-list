@@ -18,6 +18,10 @@ export async function addTasks(task: Tasks) {
   return addedTask.body
 }
 
+export async function editTask({ id, tasks }: Tasks) {
+  await request.patch(`${rootUrl}/todo/${id}`).send({ tasks })
+}
+
 export async function deleteTask(id: number) {
   await request.delete(`${rootUrl}/todo/${id}`)
 }
