@@ -1,5 +1,4 @@
 import { Router } from 'express'
-
 import * as db from '../db/db.ts'
 import { addTasks, deleteTask } from '../db/db.ts'
 
@@ -7,6 +6,7 @@ const router = Router()
 
 router.get('/', async (req, res) => {
   db.getTasks()
+  // the todo is from the db.ts
   .then((todo) => {
     res.json(todo)
   })
@@ -21,10 +21,17 @@ router.post('/', async (req, res) => {
   res.json(addedTask)
 })
 
+router.patch('/:id', async (req, res) => {
+  const task = req.body.tasks
+  const id = Number(req.params.id)
+  await db.editTask(id, task)
+  res.sendStatus(200)
+})
+
 router.delete('/:id', async (req, res) => {
   const id = Number(req.params.id)
   await deleteTask(id)
-  res.sendStatus(200)
-  
+  res.sendStatus(200)  
 })
+
 export default router
