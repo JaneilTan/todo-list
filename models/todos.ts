@@ -3,6 +3,7 @@ export interface Tasks {
   tasks: string
 }
 
-// export interface FruitData {
-//   name: string
-// }
+export interface Task {
+  id: number
+  tasks: string
+}
