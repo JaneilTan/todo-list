@@ -21,5 +21,5 @@ export async function editTask(id:number, task: Tasks) {
 }
 
 export async function deleteTask (id: number){ 
-  return db('todo').where({id}).delete()
+  return db('todo').where({ id }).delete()
 }
