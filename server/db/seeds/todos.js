@@ -4,6 +4,6 @@ export async function seed (knex) {
 
   // Inserts seed entries
   await knex('todo').insert([
-    { id: 1, task: '' },
+    { id: 1, task: 'Test' },
   ])
 }

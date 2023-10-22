@@ -5,5 +5,5 @@ export interface Tasks {
 
 export interface Task {
   id: number
-  tasks: string
+  task: string
 }
